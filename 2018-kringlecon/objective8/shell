@@ -1,0 +1,106 @@
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+import readline
+import code
+
+try:
+    input = raw_input
+except:
+    pass
+
+banner = '''\x1b[91m
+
+               :lllllllllllllllllllllllllllllllllllllllll,                      
+               'lllllllllllllllllllllllllllllllllllllllll:                      
+                clllllllllllllllllllllllllllllllllllllllll.                     
+                'lllllllllllllllllllllllllllllllllllllllll:                     
+                 ;lllllllllllllllllllllllllllllllllllllllll,                    
+                  :lllllllllllllllllllllllllllllllllllllllll.                   
+                   :lllllllllllllllllllllllllllllllllllllllll.                  
+                    ;lllllllllllllllllllllllllllllllllllllllll'                 
+                     'lllllllllllllllllllllllllllllllllllllllll;                
+                      .cllllllllllllllllllllllllllllllllllllllllc.              
+                      .:llllllllllllllllllllllllllllllllllllllllllc,.           
+                   .:llllllllllllllllllllllllllllllllllllllllllllllll;.         
+                .,cllllllllllllllllllllllllllllllllllllllllllllllllllll,        
+              .;llllllllllllllllllllllllllllllllllllllllllllllllllllllllc.      
+             ;lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllc.     
+           'llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllc     
+          :lllllll:..,..'cllllllllllllllllllllllc'.,'.'clllllllllllllllllll;    
+        .clllllll'  :XK.  :llllllllllllllllllll;  ,XX.  ;lllllllllllllllllll.   
+       .cllllllll.  oXX'  ,llllllllllllllllllll.  cXX;  .lllllllllllllllllll'   
+       clllllllll;  .xl  .cllllllllllllllllllllc.  do  .clllllllllllllllllll,   
+      :llllllllllll;'..':llllllllllllllllllllllll:'..':lllllllllllllllllllll'
+     .llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll.   
+     ;lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllc    
+     clllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll.    
+     cllllllllllllllllllllllllll..;lc..:llllllllllllllllllllllllllllllllll;     
+     :lllllllllllllllllllllllll:  .l,  .lllllllllllllllllllllllllllllllll:      
+     ,lllllllllllllllllllllllllc  .l;  ,llllllllllllllllllllllllllllllll:       
+     .llllllllllllllllllllllllllc;lll::llllllllllllllllllllllllllllllll,        
+      'llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllc.         
+       ,llllllllllllllllllllllllllllllllllllllllllllllllllllllllllll,           
+        'llllllllllllllllcccccccc;',.,clllllllllllllllllllllllllll,             
+         .cllllllc:::::;;,,,,'...':c:;...'',,;;;::::::lllllllllc,               
+           'cllllc::;::::cccccccccllc,,,,,,,'',:::::::lllllll;.                 
+             .:llllllllllkMMMMMMMMMdlclllllllllollllllllll;.                    
+               .':lllllllXMMMMMMMMMoloWMMMMMMMMXllllll:,.                       
+                   .,:llccccccccccllllXMMMMMMMMWl:;'.                           
+                       .,,,,,,,,,,clll:::::::::;                                
+                      'lllllllllc.    ',,,,,,,,.                                
+                     lMMMMMMMMMW,    .ddddddddd.                                
+                    kMMMMMMMMMX.     kMMMMMMMMK                                 
+                   ':::::::::,      .NWWWWWWWW:                                 
+                  ',,,,,,,,,.       .,,,,,,,,'                                  
+                .oooooooooo.        ',,,,,,,,.                                  
+               .NMMMMMMMMW;        cOOOOOOOOx                                   
+               0MMMMMMMMMc         NMMMMMMMMk                                   
+               ;;;;;;;;;'         .KKKKKKKKK:                                   
+              .,,,,,,,,,           ,,,,,,,,,.                                   
+              .ddddddddo           ',,,,,,,,.                                   
+               XMMMMMMMN           cKKKKKKKKK.                                  
+    .;:::;;,,,,,:ldddddd.           0MMMMMMMMX.       ....                      
+      .,:ccccccccccccccc            'cccccccccc:::ccccc;.                       
+         .:ccccccccccccc            .ccccccccccccccc:'.                         
+           .;;;;;;;;;;;;            .ccccccccccccc;.
+                                    ..............                              
+                                                                                
+                                                                                
+
+\x1b[92m
+I'm another elf in trouble,
+Caught within this Python bubble.
+\x1b[91m
+Here I clench my merry elf fist -
+Words get filtered by a black list!
+\x1b[92m
+Can't remember how I got stuck,
+Try it - maybe you'll have more luck?
+\x1b[91m
+For this challenge, you are more fit.
+Beat this challenge - Mark and Bag it!
+\x1b[92m
+-SugarPlum Mary
+\x1b[0m
+To complete this challenge, escape Python
+and run ./i_escaped'''
+
+def readfilter(*args,**kwargs):
+    inline = input(*args,**kwargs)
+    #warning: if any of your imports enable the blacklisted items you will expose the question to the test taker.
+    for eachterm in whitelist:
+        if inline.replace(" ","") == eachterm.replace(" ",""):
+            return inline
+    #warning: removing any of the following items from this list will likely expose the question.
+    for eachterm in restricted_terms:
+        if eachterm.replace(" ","") in inline.replace(" ",""):
+            print("Use of the command {0} is prohibited for this question.".format(eachterm))
+            return ""
+    return inline
+
+whitelist = []
+
+if __name__ == "__main__":
+    restricted_terms = ['import','pty', 'open','exec',"compile", "os.system", "subprocess.", "reload", "__builtins__" ,"__class__","__mro__" ]
+    code.interact(banner=banner, readfunc=readfilter, local=locals())
+    #eval("__im"+"port__('p'+'ty').s"+"pawn('/bin/bash')")                 
