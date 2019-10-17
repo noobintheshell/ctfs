@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/ae6cdb9098e1252ec193b2c50587d1b3/static/style.css" />
+  </head>
+  <title>
+     N0 H00m4n z0n3 
+  </title>
+  <body>
+    
+<script>
+  var key = "back_to_machines";
+
+  function do_deobf(ref){
+      var res = "";
+      var e = ref.innerHTML.replace(/\s/g,'');
+      var s = decodeURIComponent(e);
+      for (k=0; k<s.length; k++){
+	  var i = s[k].charCodeAt(0);
+	  var j = key[k%key.length].charCodeAt(0);
+	  var xor = i ^ j;
+	  res += String.fromCharCode(xor);
+      }
+      window.location.href = res;
+  }
+
+</script>
+<div>
+  No hooman zone
+</div>
+<div>
+  <div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/G1IbRujko-A?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>    
+  </div>
+  <div>
+    Some interesting stuff for you
+  </div>
+  <div onclick="do_deobf(this)">
+    %0A%15%17%1Be%5B%40%2B%04%0F%1AF%0A%0DJ%02%01%13%0A%08%25
+  </div>
+  <div onclick="do_deobf(this)">  
+    %0A%15%17%1B%2CN%40p%1A%16%14F%10%01%10%07%17%03%06E%3C%1B%02p%1A%00%17%0B%01Q%13NT%3E%01%5C%0D0%1A%13%1A%02%2A
+  </div>
+  <div onclick="do_deobf(this)">  
+    %0A%15%17%1B%2CN%40p%1A%16%14F%10%01%10%07%17%03%06E%3C%1B%02p%1A%00%17%0B%01Q%13N%25P%2A%09%0D%01%054%02L%22
+  </div>
+  <div onclick="do_deobf(this)">
+    M%00%06%5D%3C%10%0Df%5DX%5B%0DX%5CPA%07%02RRl%16%5D%3CXQVP%5E%0AT%11QNVS9A%0CoU%05%07XX%5DT%16VXQ%5Cj%17%0BjXR%02QYXVBQP
+  </div>
+</div>
+    
+  </body>
+</html>
